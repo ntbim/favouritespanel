@@ -5,10 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourites Panel - Revit Plugin</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; }
-        h1 { color: #0696D7; }
-        ul { margin-bottom: 20px; }
-        .contact { background: #E8F4FA; padding: 15px; border-radius: 5px; border-left: 4px solid #0696D7; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0696D7;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #0696D7;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #E8F4FA;
+            padding-bottom: 6px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        p {
+            margin-bottom: 14px;
+        }
+        code {
+            background-color: #f1f5f9;
+            color: #d63384;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: Consolas, Monaco, 'Courier New', Courier, monospace;
+        }
+        .guide-section {
+            background: #fafbfc;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        .contact {
+            background: #E8F4FA;
+            padding: 15px 20px;
+            border-radius: 5px;
+            border-left: 4px solid #0696D7;
+            margin-top: 36px;
+        }
+        .contact h2 {
+            margin-top: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .contact p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +83,52 @@
         <li><strong>Smart Type Swapping:</strong> Change selected element types directly from the panel.</li>
         <li><strong>Auto-Highlighting:</strong> Automatically highlights compatible favorites when model elements are selected.</li>
     </ul>
+
+    <h2>Workflow & Usage Guide</h2>
+
+    <div class="guide-section">
+        <h3>1. Initial Setup and Accessing the Panel</h3>
+        <p>After installing the plugin, launch Autodesk® Revit®. Navigate to the top Ribbon menu and click on the <strong>Add-ins</strong> tab. Look for the <strong>Favourites</strong> panel and click the <strong>Revit Favourites</strong> button. This displays the custom dockable tool panel on the right side of your screen by default. You can drag and dock this panel anywhere within your Revit interface to suit your personal workspace layout.</p>
+    </div>
+
+    <div class="guide-section">
+        <h3>2. Adding Favourite Items</h3>
+        <p>You can quickly populate your favorites list using two simple methods:</p>
+        <ul>
+            <li><strong>Active View Bookmark:</strong> If no elements are selected in your model, simply click the <strong>Add</strong> button on the top bar of the Favourites panel. The current active view or sheet will be instantly added under the <em>Views</em> section.</li>
+            <li><strong>Element Selection Bookmark:</strong> Select one or multiple elements in your model viewport or Project Browser (such as Walls, Doors, Windows, Detail Lines, Text Notes, or Filled Regions), and click the <strong>Add</strong> button. The plugin automatically categorizes the selected item into the <em>Modeling</em> or <em>Families</em> sections and applies color-coded visual badges.</li>
+        </ul>
+    </div>
+
+    <div class="guide-section">
+        <h3>3. Interacting with Favorites (Double-Click Actions)</h3>
+        <ul>
+            <li><strong>Opening Views:</strong> Double-clicking any favorited item under the <em>Views</em> section will immediately set that view or sheet as your active viewport.</li>
+            <li><strong>Changing Element Types (Type Swapping):</strong> Select any existing element in your Revit model space, then double-click a favorited type in your list. The plugin will execute a transaction to swap the selected element's type to your favorite choice and present a brief confirmation overlay.</li>
+            <li><strong>Create Similar Tool:</strong> If no elements are currently selected in the model, double-clicking any favorited model type or family will instantly launch Revit's native <em>Create Similar</em> command, allowing you to start placing new instances immediately.</li>
+        </ul>
+    </div>
+
+    <div class="guide-section">
+        <h3>4. Automatic Selection Highlighting</h3>
+        <p>When you select any element in your active Revit model, the Revit Favourites panel automatically evaluates the selection. Any matching or compatible favorite item in your panel will immediately highlight with a distinct blue border, while non-compatible items are slightly faded. This gives you instant visual feedback on which favorited styles or types can be applied to your current selection.</p>
+    </div>
+
+    <div class="guide-section">
+        <h3>5. Context Menu & Batch Selection</h3>
+        <p>Right-clicking any item in the Favourites list opens a context menu with enhanced functions:</p>
+        <ul>
+            <li><strong>Select All Instances:</strong> Selects every instance of the favorited type across the entire project model.</li>
+            <li><strong>Select All Instances in View:</strong> Selects only the instances visible within the active view.</li>
+            <li><strong>Remove Item:</strong> Deletes the specific item from your favorites list.</li>
+        </ul>
+    </div>
+
+    <div class="guide-section">
+        <h3>6. Managing & Removing Favorites</h3>
+        <p>To remove items, select the item in the list and click the <strong>Remove</strong> button at the top of the panel, or use the red <strong>Remove All</strong> buttons located inside each category header for batch clearing.</p>
+        <p>All configuration data is stored locally per project in <code>%AppData%\FavouritesPanel</code> without modifying your actual <code>.rvt</code> file.</p>
+    </div>
 
     <div class="contact">
         <h2>Support & Contact</h2>
