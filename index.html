@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourites Panel - Revit Plugin</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -19,7 +22,7 @@
         }
         h2 {
             color: #0696D7;
-            margin-top: 32px;
+            margin-top: 36px;
             margin-bottom: 12px;
             border-bottom: 2px solid #E8F4FA;
             padding-bottom: 6px;
@@ -48,12 +51,33 @@
             font-size: 0.9em;
             font-family: Consolas, Monaco, 'Courier New', Courier, monospace;
         }
-        .guide-section {
+        .nav-links {
+            margin: 16px 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e1e8ed;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            color: #0696D7;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 18px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .guide-section, .policy-box {
             background: #fafbfc;
             border: 1px solid #e1e8ed;
             border-radius: 6px;
             padding: 16px 20px;
             margin-bottom: 16px;
+        }
+        .policy-box h3 {
+            margin-top: 14px;
+        }
+        .policy-box h3:first-of-type {
+            margin-top: 4px;
         }
         .contact {
             background: #E8F4FA;
@@ -75,8 +99,15 @@
 <body>
     <h1>Favourites Panel</h1>
     <p>A sleek dockable panel for Autodesk® Revit® to bookmark and quickly access your most-used Views, Modeling types, and Families.</p>
+
+    <div class="nav-links">
+        <a href="#features">Key Features</a>
+        <a href="#guide">Workflow &amp; Guide</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#support">Support</a>
+    </div>
     
-    <h2>Key Features</h2>
+    <h2 id="features">Key Features</h2>
     <ul>
         <li><strong>Quick Access Favorites:</strong> Bookmark views, sheets, families, line styles, and filled regions with a single click.</li>
         <li><strong>Instant View Activation:</strong> Open views immediately by double-clicking.</li>
@@ -84,11 +115,11 @@
         <li><strong>Auto-Highlighting:</strong> Automatically highlights compatible favorites when model elements are selected.</li>
     </ul>
 
-    <h2>Workflow & Usage Guide</h2>
+    <h2 id="guide">Workflow &amp; Usage Guide</h2>
 
     <div class="guide-section">
         <h3>1. Initial Setup and Accessing the Panel</h3>
-        <p>After installing the plugin, launch Autodesk® Revit®. Navigate to the top Ribbon menu and click on the <strong>Add-ins</strong> tab. Look for the <strong>Favourites</strong> panel and click the <strong>Favourites Panel</strong> button. This displays the custom dockable tool panel on the right side of your screen by default. You can drag and dock this panel anywhere within your Revit interface to suit your personal workspace layout.</p>
+        <p>After installing the plugin, launch Autodesk® Revit®. Navigate to the top Ribbon menu and click on the <strong>Add-ins</strong> tab. Look for the <strong>Favourites</strong> panel and click the <strong>Revit Favourites</strong> button. This displays the custom dockable tool panel on the right side of your screen by default. You can drag and dock this panel anywhere within your Revit interface to suit your personal workspace layout.</p>
     </div>
 
     <div class="guide-section">
@@ -115,7 +146,7 @@
     </div>
 
     <div class="guide-section">
-        <h3>5. Context Menu & Batch Selection</h3>
+        <h3>5. Context Menu &amp; Batch Selection</h3>
         <p>Right-clicking any item in the Favourites list opens a context menu with enhanced functions:</p>
         <ul>
             <li><strong>Select All Instances:</strong> Selects every instance of the favorited type across the entire project model.</li>
@@ -125,13 +156,28 @@
     </div>
 
     <div class="guide-section">
-        <h3>6. Managing & Removing Favorites</h3>
+        <h3>6. Managing &amp; Removing Favorites</h3>
         <p>To remove items, select the item in the list and click the <strong>Remove</strong> button at the top of the panel, or use the red <strong>Remove All</strong> buttons located inside each category header for batch clearing.</p>
         <p>All configuration data is stored locally per project in <code>%AppData%\FavouritesPanel</code> without modifying your actual <code>.rvt</code> file.</p>
     </div>
 
-    <div class="contact">
-        <h2>Support & Contact</h2>
+    <h2 id="privacy">Privacy Policy</h2>
+    <div class="policy-box">
+        <h3>1. Data Collection</h3>
+        <p>Revit Favourites does not collect, store, or transmit any personal data, user identification, or usage telemetry. All plugin settings and project-specific configuration files are stored locally on the user's computer (<code>%AppData%\FavouritesPanel</code>).</p>
+
+        <h3>2. Third-Party Sharing</h3>
+        <p>Since no user data is collected, no data is shared with or sold to any third parties.</p>
+
+        <h3>3. Data Retention &amp; Deletion</h3>
+        <p>All project configuration files remain on the user's local system. Users can permanently delete all app-related data at any time by deleting the local folder at <code>%AppData%\FavouritesPanel</code>.</p>
+
+        <h3>4. Revoking Consent</h3>
+        <p>Uninstalling the application completely removes the plugin from Autodesk Revit.</p>
+    </div>
+
+    <div class="contact" id="support">
+        <h2>Support &amp; Contact</h2>
         <p>For technical support, feedback, or inquiries, please contact us via email:</p>
         <p><strong>Email:</strong> ntbim@proton.me</p>
     </div>
